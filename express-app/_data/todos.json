@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "task": "Buy groceries",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "task": "Complete homework",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "task": "Go for a run",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "task": "Read a book",
+    "completed": false
+  },
+  {
+    "id": 5,
+    "task": "Learn a new skill",
+    "completed": true
+  },
+  {
+    "id": 6,
+    "task": "Cook a new recipe",
+    "completed": false
+  },
+  {
+    "id": 7,
+    "task": "Write a blog post",
+    "completed": true
+  },
+  {
+    "id": 8,
+    "task": "Exercise for 30 minutes",
+    "completed": false
+  },
+  {
+    "id": 9,
+    "task": "Call a friend",
+    "completed": false
+  },
+  {
+    "id": 10,
+    "task": "Organize your workspace",
+    "completed": true
+  }
+]
