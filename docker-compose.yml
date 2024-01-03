@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  # Express App
+  express-app:
+    image: express-app:v10
+    build:
+      context: ./express-app
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    container_name: dc-c1
+
+  # React App
+  react-app:
+    image: react-app:v10
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: dc-c2
