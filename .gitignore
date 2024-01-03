@@ -1,4 +1,7 @@
 node_modules
 
 laravel-app
-react-app
+# react-app
+
+.env
+.env.*
