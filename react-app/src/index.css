@@ -1,0 +1,28 @@
+.todo-app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.todo-item input {
+  margin-right: 10px;
+}
+
+.todo-item.completed {
+  text-decoration: line-through;
+}
