@@ -1,70 +1,153 @@
-1. **`docker-compose up`**
+# Docker Commands
 
-   - Start containers based on the `docker-compose.yml` configuration.
+### Build Image :
 
-2. **`docker-compose up -d`**
+Build an image from a Dockerfile:
 
-   - Start containers in detached mode (in the background).
+```bash
+docker build -t <image-name>:<tag>
+```
 
-3. **`docker-compose down`**
+Build an image with a specific Dockerfile:
 
-   - Stop and remove containers, networks, and volumes defined in the `docker-compose.yml` file.
+```bash
+docker build -f <Dockerfile-name> -t <image-name>:<tag>
+```
 
-4. **`docker-compose ps`**
+### List Images :
 
-   - List containers started by `docker-compose`, along with their status.
+List all Docker images:
 
-5. **`docker-compose logs`**
+```bash
+docker images
+```
 
-   - Display log output from services.
+### Pull Image :
 
-6. **`docker-compose exec <service-name> <command>`**
+Pull a Docker image from a registry:
 
-   - Execute a command inside a running container.
+```bash
+docker pull <image-name>:<tag>
+```
 
-7. **`docker-compose build`**
+### Remove Image
 
-   - Build or rebuild services.
+Remove a Docker image:
 
-8. **`docker-compose images`**
+```bash
+docker rmi <image-name>:<tag>
+```
 
-   - List images used by services.
+### Run Container
 
-9. **`docker-compose pull`**
+Run a container from an image:
 
-   - Pull service images from the specified registry.
+```bash
+docker run <image-name>:<tag>
+```
 
-10. **`docker-compose restart`**
+Run a container in detached mode
 
-    - Restart services.
+```bash
+docker run -d <image-name>:<tag>
+```
 
-11. **`docker-compose stop`**
+### List Containers
 
-    - Stop services without removing containers and networks.
+List all running containers:
 
-12. **`docker-compose rm`**
+```bash
+docker ps
+```
 
-    - Remove stopped containers.
+List all containers (including stopped ones):
 
-13. **`docker-compose down -v`**
+```bash
+docker ps -a
+```
 
-    - Stop and remove containers, networks, and volumes defined in the `docker-compose.yml` file, including volumes.
+### Stop Container
 
-14. **`docker-compose config`**
+Stop a running container:
 
-    - Validate and view the `docker-compose.yml` file.
+```bash
+docker stop <container-id>
+```
 
-15. **`docker-compose scale <service-name>=<num-instances>`**
+### Remove Container
 
-    - Scale a service to the specified number of instances.
+Remove a stopped container:
 
-16. **`docker-compose top`**
+```bash
+docker rm <container-id>
+```
 
-    - Display the running processes of a service.
+Remove a running container:
 
-17. **`docker-compose pause`**
+```bash
+docker rm -f <container-id>
+```
 
-    - Pause services.
+### Exec Into Container
 
-18. **`docker-compose unpause`**
-    - Unpause services.
+Execute a command inside a running container interactively:
+
+```bash
+docker exec -it <container-id> <command>
+```
+
+### Logs
+
+Display the logs of a specific container:
+
+```bash
+docker logs <container-id>
+```
+
+### Network Management
+
+List all Docker networks:
+
+```bash
+docker network ls
+```
+
+### Volume Management
+
+List all Docker volumes:
+
+```bash
+docker volume ls
+```
+
+### Docker Compose
+
+Run containers defined in a Compose file:
+
+```bash
+docker-compose up
+```
+
+Run containers in detached mode and rebuild images:
+
+```bash
+docker-compose up -d --build
+```
+
+Stop and remove containers, networks, and volumes defined in a Compose file:
+
+```bash
+docker-compose down
+```
+
+Scale a service to the specified number of instances:
+
+```bash
+docker-compose scale <service-name>=<num-instances>
+```
+
+Validate and view the Compose file:
+
+```bash
+docker-compose config
+```
