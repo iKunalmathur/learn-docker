@@ -3,20 +3,24 @@ version: "3.7"
 services:
   # Express App
   express-app:
-    image: express-app:v10
+    image: express-app:v1.1.0
     build:
       context: ./express-app
       dockerfile: Dockerfile
     ports:
       - "4000:4000"
+    volumes:
+      - ./express-app:/app # Mount express-app folder to /app
     container_name: dc-c1
 
   # React App
   react-app:
-    image: react-app:v10
+    image: react-app:v1.1.0
     build:
       context: ./react-app
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    depends_on:
+      - express-app # Wait for express-app to start
     container_name: dc-c2
