@@ -1,7 +1,4 @@
 node_modules
 
-laravel-app
-# react-app
-
 .env
-.env.*
+.env.prod

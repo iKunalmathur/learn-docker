@@ -1,0 +1,38 @@
+pipeline {
+  agent any
+
+  tools {
+    nodejs "NodeJS" // set this name under "Manage Jenkins → Global Tool Configuration"
+  }
+
+  stages {
+    stage('Checkout Code') {
+      steps {
+        git 'https://github.com/iKunalmathur/learn-docker.git' // replace with your repo
+      }
+    }
+
+    stage('Install Backend') {
+      steps {
+        dir('express-app') {
+          sh 'npm install'
+        }
+      }
+    }
+
+    stage('Install Frontend') {
+      steps {
+        dir('react-app') {
+          sh 'npm install'
+          sh 'npm run build' // builds React production
+        }
+      }
+    }
+
+    stage('Success') {
+      steps {
+        echo 'Build Complete ✅'
+      }
+    }
+  }
+}
