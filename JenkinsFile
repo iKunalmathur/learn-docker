@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/iKunalmathur/learn-docker.git']]])
+        git branch: 'main', url: 'https://github.com/iKunalmathur/learn-docker.git'
       }
     }
 
@@ -26,6 +26,15 @@ pipeline {
         dir('react-app') {
           sh 'npm install'
           sh 'npm run build'
+        }
+      }
+    }
+
+    stage('Test Backend') {
+      steps {
+        dir('express-app') {
+          sh 'npm start &'
+          sh 'curl -s http://localhost:4000/api/todos'
         }
       }
     }
