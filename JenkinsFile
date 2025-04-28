@@ -1,14 +1,9 @@
 pipeline {
   agent {
     docker {
-      image 'node:18'  // Use Node.js official image
-      args '-v /var/run/docker.sock:/var/run/docker.sock' // If you also want Docker access inside
-      args '-p 3000:3000 -p 3001:3000' // Expose ports for the frontend and backend
+      image 'node:18'  
+      args '-v /var/run/docker.sock:/var/run/docker.sock -p 3000:3000 -p 3001:3000' 
     }
-  }
-
-  tools {
-    nodejs "NodeJS" // Only needed if you use Jenkins' installed Node. Else, docker image already has Node.
   }
 
   stages {
