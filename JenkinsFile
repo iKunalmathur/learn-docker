@@ -39,6 +39,25 @@ pipeline {
       }
     }
 
+    stage('Test Frontend') {
+      steps {
+        dir('react-app') {
+          sh 'npm run dev &'
+          sh 'curl -s http://localhost:3000 | grep -q "React Todo"'
+        }
+      }
+    }
+    stage('Build Docker Images') {
+      steps {
+        dir('express-app') {
+          sh 'docker build -t express-app .'
+        }
+        dir('react-app') {
+          sh 'docker build -t react-app .'
+        }
+      }
+    }
+
     stage('Success') {
       steps {
         echo 'Build Complete ✅'
