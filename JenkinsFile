@@ -1,8 +1,13 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'node:18'  // Use Node.js official image
+      args '-v /var/run/docker.sock:/var/run/docker.sock' // If you also want Docker access inside
+    }
+  }
 
   tools {
-    nodejs "NodeJS" // set this name under "Manage Jenkins → Global Tool Configuration"
+    nodejs "NodeJS" // Only needed if you use Jenkins' installed Node. Else, docker image already has Node.
   }
 
   stages {
@@ -24,7 +29,7 @@ pipeline {
       steps {
         dir('react-app') {
           sh 'npm install'
-          sh 'npm run build' // builds React production
+          sh 'npm run build'
         }
       }
     }
